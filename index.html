@@ -215,6 +215,11 @@
 				</footer>
 
 			</div>
+			<div>
+				<canvas id="myChart"></canvas><!--id for my chart-->
+
+
+			</div>
 
 		<!-- Footer -->
 			<div id="footer">
@@ -279,27 +284,30 @@
 				listObject=list;
 			
 				console.log(listObject); 
+				listObject.sort(function(a,b) {
+                    return a.rank - b.rank;
+                });
 			
 			
 			
-			/*var ctx = document.getElementById('myChart').getContext('2d');//start fo chart code
+			var ctx = document.getElementById('myChart').getContext('2d');//start fo chart code
 				var chart = new Chart(ctx, {
 			  // The type of chart we want to create
 			  type: 'bar',
 		  
 			  // The data for our dataset
 			  data: {
-				  labels: [listObject[0].name, listObject[1].name, listObject[2].name, listObject[3].name, listObject[4].name, listObject[5].name, listObject[6].name],
+				  labels: [listObject[0].Company, listObject[1].Company, listObject[2].Company, listObject[3].Company, listObject[4].Company, listObject[5].Company, listObject[6].Company],
 				  datasets: [{
-					  label: "top seven billionares net worth",
+					  label: "top companies and there stats",
 					  backgroundColor: 'rgb(190, 190, 200)',
 					  borderColor: 'rgb(255, 99, 132)',
-					  data: [listObject[0].networth, listObject[1].networth, listObject[2].networth, listObject[3].networth, listObject[4].networth, listObject[5].networth, listObject[6].networth],
+					  data: [listObject[0].Sales, listObject[1].Sales, listObject[2].Sales, listObject[3].Sales, listObject[4].Sales, listObject[5].Sales, listObject[6].Sales],
 				  }]
 			  },
 		  
 			  // Configuration options go here
 			  options: {}
-		  });*/
+		  });
 			   </script>
 </html>
