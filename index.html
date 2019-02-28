@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Crime data the way you want it</title>
+		<title>Ranking Top Companies in the World</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,10 +18,8 @@
 		<!-- Header -->
 			<div id="header">
 				<span class="logo icon fa-paper-plane-o"></span>
-				<h1>Hi. This is Directive.</h1>
-				<p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
-				<br />
-				and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<h1>Forbes’ 2018 Global 2000 list.</h1>
+				<p>We will have three charts and ranks the ompanies by market value and profit .</p>
 			</div>
 
 		<!-- Main -->
@@ -43,8 +41,9 @@
 					<section class="feature left">
 						<a href="#" class="image icon fa-signal"><img src="images/pic01.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The First Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+							<h3>Top 7 Companies ranked by </h3>
+							
+							
 						</div>
 					</section>
 					<section class="feature right">
@@ -208,6 +207,7 @@
 
 				<footer class="major container medium">
 					<h3>Get shady with science</h3>
+					<canvas id="myChart"></canvas><!--id for my chart-->
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 					<ul class="actions special">
 						<li><a href="#" class="button">Join our crew</a></li>
@@ -215,11 +215,7 @@
 				</footer>
 
 			</div>
-			<div>
-				<canvas id="myChart"></canvas><!--id for my chart-->
 
-
-			</div>
 
 		<!-- Footer -->
 			<div id="footer">
@@ -285,24 +281,26 @@
 			
 				console.log(listObject); 
 				listObject.sort(function(a,b) {
-                    return a.rank - b.rank;
-                });
+                    return b.Profits - a.Profits;
+				});
+				console.log(listObject.length);
+				console.log(listObject);
 			
 			
 			
 			var ctx = document.getElementById('myChart').getContext('2d');//start fo chart code
 				var chart = new Chart(ctx, {
 			  // The type of chart we want to create
-			  type: 'bar',
+			  type: 'line',
 		  
 			  // The data for our dataset
 			  data: {
 				  labels: [listObject[0].Company, listObject[1].Company, listObject[2].Company, listObject[3].Company, listObject[4].Company, listObject[5].Company, listObject[6].Company],
 				  datasets: [{
-					  label: "top companies and there stats",
+					  label: "Top 7 Companies and Profit in Billions",
 					  backgroundColor: 'rgb(190, 190, 200)',
 					  borderColor: 'rgb(255, 99, 132)',
-					  data: [listObject[0].Sales, listObject[1].Sales, listObject[2].Sales, listObject[3].Sales, listObject[4].Sales, listObject[5].Sales, listObject[6].Sales],
+					  data: [listObject[0].Profits, listObject[1].Profits, listObject[2].Profits, listObject[3].Profits, listObject[4].Profits, listObject[5].Profits, listObject[6].Profits],
 				  }]
 			  },
 		  
