@@ -281,21 +281,21 @@
 				<script src="assets\js\data.js"></script><!--linking to my ja file-->
 			<script>
 				listObject=list;
+				console.log(listObject);
 
 				function generateChart(){
-
-					console.log(listObject);
-
-					listObject.sort(function(a,b) {
-						return b.Profits - a.Profits;
-					});
-					console.log(listObject.length);
-					console.log(listObject);
 
 					var selectedValue = document.getElementById("dropdown").value;
 					console.log(selectedValue);
 					
 					if(selectedValue == "profit"){
+
+						listObject.sort(function(a,b) {
+							return b.Profits - a.Profits;
+						});
+						console.log(listObject.length);
+						console.log(listObject);
+
 						var ctx = document.getElementById('myChart').getContext('2d');//start for chart code
 						var chart = new Chart(ctx, {
 						// The type of chart we want to create
@@ -315,8 +315,35 @@
 						// Configuration options go here
 						options: {}
 						});
+					}else if(selectedValue =="marketValue"){
+
+						listObject.sort(function(a,b) {
+							return b.marketValue - a.marketValue;
+						});
+						console.log(listObject.length);
+						console.log(listObject);
+
+						var ctx = document.getElementById('myChart').getContext('2d');//start for chart code
+						var chart = new Chart(ctx, {
+						// The type of chart we want to create
+						type: 'bar',
+					
+						// The data for our dataset
+						data: {
+							labels: [listObject[0].Company, listObject[1].Company, listObject[2].Company, listObject[3].Company, listObject[4].Company, listObject[5].Company, listObject[6].Company],
+							datasets: [{
+								label: "Top 7 Companies and Market Value in Billions",
+								backgroundColor: 'rgb(190, 190, 200)',
+								borderColor: 'rgb(255, 99, 132)',
+								data: [listObject[0].marketValue, listObject[1].marketValue, listObject[2].marketValue, listObject[3].marketValue, listObject[4].marketValue, listObject[5].marketValue, listObject[6].marketValue],
+							}]
+						},
+					
+						// Configuration options go here
+						options: {}
+						});
 					}
-				}
+				}//end of generateChart function
 			
 
 			   </script>
