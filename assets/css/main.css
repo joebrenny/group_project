@@ -2896,7 +2896,6 @@ input, select, textarea {
 
 		#main:before {
 			background: rgba(224, 224, 224, 0.75);
-			content: '';
 			height: 100%;
 			left: 50%;
 			position: absolute;
@@ -2908,6 +2907,12 @@ input, select, textarea {
 		#main header.major,
 		#main footer.major {
 			background: #ffffff;
+		}
+		#main-2 p{
+			text-align: left;
+			text-indent: 5%;
+			margin: 2em 7em -1em 9em;
+			color: rgb(33, 102, 63);
 		}
 
 /* Wide */
